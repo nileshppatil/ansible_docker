@@ -55,8 +55,8 @@ Step 3
 
 $ ansible-playbook -i inventory/hosts site.yml --user root --ask-pass
 --or else--
-$ ansible-playbook -i inventory/host site.yml --ask-pass --ask-become-pass
----Once Docker Containers are Created Follow Next Steps---
+$ ansible-playbook -i inventory/hosts site.yml --ask-pass --ask-become-pass
+****Once Docker Containers are Created Follow Next Steps****
 
 Step 4 Starting Jenkins Server
 

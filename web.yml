@@ -3,7 +3,7 @@
   sudo: yes
   gather_facts: False
   vars:
-    - nginx_conf: "/var/lib/jenkins/jobs/Nginx\ Load\ Balancing/workspace/nginx_conf"
+    - nginx_conf: /var/lib/jenkins/jobs/Nginx_Load_Balancing/workspace/nginx_conf
   roles:
     - nginx
 

@@ -1,0 +1,7 @@
+---
+- hosts: buildserver
+  sudo: yes
+  gather_facts: False
+  roles:
+    - jenkins
+

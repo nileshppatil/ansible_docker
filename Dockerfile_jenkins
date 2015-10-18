@@ -1,0 +1,43 @@
+############################################################
+# Dockerfile to build MongoDB container images
+# Based on CentOS
+############################################################
+FROM centos:6.6
+MAINTAINER Nilesh Patil
+RUN yum update -y
+RUN yum install -y passwd openssh openssh-server openssh-clients sudo epel-release unzip
+RUN yum install -y PyYAML python-jinja2 python-httplib2 python-keyczar python-paramiko python-setuptools git python-pip wget tar ansible golang
+#####Install Oracle jdk
+RUN cd ~
+RUN wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u60-b27/jdk-8u60-linux-x64.rpm"
+
+RUN yum localinstall -y jdk-8u60-linux-x64.rpm
+RUN rm -rf ~jdk-8u60-linux-x64.rpm
+### Add jenkins repo
+RUN wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
+RUN rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
+RUN yum install -y jenkins
+## Create user
+RUN useradd ansible
+RUN passwd -f -u ansible
+RUN echo 'root:Passw0rd' | chpasswd
+
+RUN echo 'ansible:chang3it' | chpasswd
+## Set up SSH 
+RUN mkdir -p /home/ansible/.ssh; chown ansible /home/ansible/.ssh; chmod 700 /home/ansible/.ssh
+
+## setup sudoers
+RUN echo "ansible    ALL=(ALL)       ALL" >> /etc/sudoers.d/ansible
+
+## Set up SSHD config
+
+RUN sed -ri 's/#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config
+RUN sed -ri 's/#UsePAM no/UsePAM yes/g' /etc/ssh/sshd_config
+RUN sed -ri 's/GSSAPIAuthentication yes/GSSAPIAuthentication no/g' /etc/ssh/sshd_config
+
+RUN mkdir -p /apps
+RUN mkdir -p /logs
+RUN mkdir -p /downloads
+RUN /usr/bin/ssh-keygen -q -t rsa -N '' -f /etc/ssh/ssh_host_rsa_key
+RUN /usr/bin/ssh-keygen -q -t dsa -N '' -f /etc/ssh/ssh_host_dsa_key
+CMD ["/usr/sbin/sshd", "-D" ] 

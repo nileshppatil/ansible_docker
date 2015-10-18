@@ -29,27 +29,40 @@ In ansible_docker inventories/hosts and nginx_conf/default.conf update the 192.1
   -2. Ports are pre-defined, if you want to change you can change in *_infra.yml as per the avalaibilty.
 
 ############Docker Container Creation##############
+
 App server count=2 
+
 Build server count=1
+
 Web server count=1
+
 ###################################################
+
 #######If you have direct root access the host
+
 ansible-playbook -i inventory/hosts site.yml --user root --ask-pass
+
 or else
+
 ansible-playbook -i inventory/host site.yml  --ask-pass  --ask-become-pass
 
 ##########if you want debug or verbose output command 
 ansible-playbook -i inventory/host site.yml --user root --ask-pass -vvvv
+
 or else
+
 ansible-playbook -i inventory/host site.yml --user < any user >  --ask-pass --become-user --ask-become-pass -vvvv
 
 ########################################################
 Starting Jenkins Server
+
 ansible-playbook -i inventory/hosts build.yml  --user root --ask-pass -vvvv
 
 ######################################################
 Auto accept rsa key fingerprint from command line
+
 update your
+
 ~/.ssh/config
 
 Host 192.168.0.*

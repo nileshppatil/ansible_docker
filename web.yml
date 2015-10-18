@@ -3,7 +3,7 @@
   sudo: yes
   gather_facts: False
   vars:
-    - nginx_conf: ./nginx_conf
+    - nginx_conf: /home/npatil/ansible_docker/nginx_conf
   roles:
     - nginx
 

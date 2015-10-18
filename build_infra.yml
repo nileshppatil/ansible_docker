@@ -3,7 +3,7 @@
   sudo: yes
   gather_facts: True
   vars:
-    - image_name: pnilesh/centos_sshd_jenkins
+    - image_name: pnilesh/centos_sshd_build
     - num_of_container: 1
     - group_name: build
     - host_name: build

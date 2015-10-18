@@ -1,0 +1,13 @@
+[web]
+localhost
+#192.168.0.16
+[apps]
+localhost
+[build]
+#build_1 ansible_ssh_port=9301 ansible_ssh_host=localhost
+localhost
+[webserver]
+web_1 ansible_ssh_port=8901 ansible_ssh_host=localhost
+[appserver]
+app_1 ansible_ssh_port=9101 ansible_ssh_host=localhost
+app_2 ansible_ssh_port=9102 ansible_ssh_host=localhost

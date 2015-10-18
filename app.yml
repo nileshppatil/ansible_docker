@@ -1,0 +1,10 @@
+---
+- hosts: appserver 
+  sudo: yes
+  gather_facts: False
+  vars:
+    - app_binary: /home/npatil/docker/project/goapp/goweb 
+    - app_home_dir: /apps/go
+    - app_name: goweb
+  roles:
+    - goweb

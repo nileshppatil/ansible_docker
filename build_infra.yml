@@ -1,0 +1,16 @@
+---
+- hosts: build
+  sudo: yes
+  gather_facts: True
+  vars:
+    - image_name: pnilesh/centos_sshd_jenkins
+    - num_of_container: 1
+    - group_name: build
+    - host_name: build
+    # Ports wil be itterated starting with range specfied example 900{{item}} will become 9001 and 222{{item}} will become 2221 
+    - ports_map: "0.0.0.0:920{{item}}:8080/tcp,0.0.0.0:930{{item}}:22/tcp"
+    #Ports expose needs to be  decalred with respect to ports mapped above.
+    - ports_expose: "8080,22"
+  roles:
+    - docker
+

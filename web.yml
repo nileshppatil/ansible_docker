@@ -1,0 +1,9 @@
+---
+- hosts: webserver
+  sudo: yes
+  gather_facts: False
+  vars:
+    - nginx_conf: /home/npatil/docker/project/nginx_conf
+  roles:
+    - nginx
+

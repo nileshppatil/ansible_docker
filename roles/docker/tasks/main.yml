@@ -1,0 +1,13 @@
+---
+- name: Provision docker  container
+  docker: 
+    image: "{{ image_name }}"
+    publish_all_ports: yes
+    detach: False
+    pull: always
+    state: restarted
+    name: "{{group_name}}_{{ item }}"
+    hostname: "{{host_name}}_{{ item }}"
+    ports: "{{ports_map}}"
+    expose: "{{ports_expose}}"
+  with_sequence: count="{{ num_of_container }}"

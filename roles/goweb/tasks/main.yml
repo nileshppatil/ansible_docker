@@ -1,0 +1,11 @@
+---
+- name: Copy go web binary
+  copy: src={{ app_binary }} dest=/apps/go/ mode=0755
+  notify:
+     - start goweb
+
+- name: Create Init scripts for  apps
+  template: src=goweb.init.j2 dest=/etc/init.d/{{ app_name }} mode=0755
+  notify:
+     - start goweb
+

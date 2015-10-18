@@ -1,0 +1,4 @@
+---
+ - include: build_infra.yml
+ - include: app_infra.yml
+ - include: web_infra.yml

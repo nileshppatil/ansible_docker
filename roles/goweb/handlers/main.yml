@@ -1,0 +1,4 @@
+---
+ - name: start goweb
+   service: name=goweb enabled=yes state=restarted
+

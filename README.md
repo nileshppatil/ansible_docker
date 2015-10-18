@@ -59,13 +59,18 @@ Host 192.168.0.*
 ############################
 
 Jenkins Buld server is configured with All automation
+
 1. Job web 
+
 2. job Ansible Automation
+
 3. Nginx_Load_Balancing.
  
 ##################
 Jenkins Url
+
 http://192.168.0.9:9201/
 ##############
 Nginx Url
+
 http://192.168.0.9:8801/

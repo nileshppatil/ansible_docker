@@ -8,8 +8,8 @@ Repository ansible_docker contains all the playbooks and the roles required for 
  
 
 
-### Version
-Note: Docker Server and Client API Versions needs to be same. 
+### Important Version 
+### Note: Docker Server and Client API Versions needs to be same. 
 Client: Version: 1.8.3
 API version: 1.20
 Go version: go1.4.2 
@@ -28,28 +28,35 @@ OS/Arch: linux/amd64
 
 Jenkins Buld server is configured with All automation
 
-* [web] - Job webJob web!
+* [web] - Job web
 * [Ansible_automation] - job Ansible Automation
 * [Nginx_Load_Balancing] - Nginx_Load_Balancing.
 
 ### Installation
 
-Clone the Repositories :
 
 ```sh
 
 Step 1 Clone the Repository
+
 $ git clone https://github.com/nileshppatil/myproject.git 
 $ git clone https://github.com/nileshppatil/ansible_docker.git
+
 Step 2 Change Directory 
+
 $ cd ansible_docker
+
 Step 3
+
 $ ansible-playbook -i inventory/hosts site.yml --user root --ask-pass
 --or else--
 $ ansible-playbook -i inventory/host site.yml --ask-pass --ask-become-pass
 ---Once Docker Containers are Created Follow Next Steps---
+
 Step 4 Starting Jenkins Server
+
 $ ansible-playbook -i inventory/hosts build.yml --user root --ask-pass 
+
 Auto accept rsa key fingerprint from command line if you want avoid accepting key fingerprint
 update your ~/.ssh/config
 --------------------------------------------

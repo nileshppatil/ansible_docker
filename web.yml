@@ -3,7 +3,7 @@
   sudo: yes
   gather_facts: False
   vars:
-    - nginx_conf: /home/npatil/ansible_docker/nginx_conf
+    - nginx_conf: "/var/lib/jenkins/jobs/Nginx\ Load\ Balancing/workspace/nginx_conf"
   roles:
     - nginx
 

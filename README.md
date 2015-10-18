@@ -46,6 +46,11 @@ Step 2 Change Directory
 
 $ cd ansible_docker
 
+update the ip address 192.168.0.9 to your host
+
+inventory/hosts
+nginx_conf/default.conf
+
 Step 3
 
 $ ansible-playbook -i inventory/hosts site.yml --user root --ask-pass

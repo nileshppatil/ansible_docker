@@ -33,12 +33,12 @@ App server count=2
 Build server count=1
 Web server count=1
 ###################################################
-#If you have direct root access the host
+#######If you have direct root access the host
 ansible-playbook -i inventory/hosts site.yml --user root --ask-pass
 or else
 ansible-playbook -i inventory/host site.yml  --ask-pass  --ask-become-pass
 
-#if you want debug or verbose output command 
+##########if you want debug or verbose output command 
 ansible-playbook -i inventory/host site.yml --user root --ask-pass -vvvv
 or else
 ansible-playbook -i inventory/host site.yml --user < any user >  --ask-pass --become-user --ask-become-pass -vvvv

@@ -3,7 +3,7 @@
   sudo: yes
   gather_facts: False
   vars:
-    - app_binary: /home/npatil/docker/project/goapp/goweb 
+    - app_binary: /var/lib/jenkins/jobs/Testing/lastSuccessful/archive/target/goweb 
     - app_home_dir: /apps/go
     - app_name: goweb
   roles:

@@ -7,7 +7,7 @@
   notify:
      - start nginx
 
-- name: Upload the default index.html file
+- name: Upload the external conf files
   copy: src={{ item }} dest=/etc/nginx/conf.d/ mode=0644
   with_fileglob:
     - "{{ nginx_conf}}/*"

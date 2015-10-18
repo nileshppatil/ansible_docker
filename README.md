@@ -62,6 +62,7 @@ Step 4 Starting Jenkins Server
 
 $ ansible-playbook -i inventory/hosts build.yml --user root --ask-pass 
 
+root password for all the Container is Passw0rd
 Auto accept rsa key fingerprint from command line if you want avoid accepting key fingerprint
 update your ~/.ssh/config
 --------------------------------------------
